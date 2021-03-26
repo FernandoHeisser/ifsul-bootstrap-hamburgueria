@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/meuCSS.css">
+
+    <title>Hamburgueria 80's</title>
+    <script>
+        addEventListener("load", () => {
+            var valor;
+            document.getElementById("chesseburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+1;
+            });
+            document.getElementById("chickenburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+2;
+            });
+            document.getElementById("baconburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+3;
+            });
+            document.getElementById("fishburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+4;
+            });
+            document.getElementById("duploburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+5;
+            });
+            document.getElementById("fourburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+6;
+            });
+            document.getElementById("cheddarburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+7;
+            });
+            document.getElementById("saladburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+8;
+            });
+            document.getElementById("picanhaburguer").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+9;
+            });
+            document.getElementById("fritaspequena").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+10;
+            });
+            document.getElementById("fritasmedia").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+11;
+            });
+            document.getElementById("fritasgrande").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+12;
+            });
+            document.getElementById("aneiscebola").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+13;
+            });
+            document.getElementById("nuggetsfrango").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+14;
+            });
+            document.getElementById("salada").addEventListener("click", () => {
+                window.location.href = "delivery.html?pedido="+15;
+            });
+        });
+    </script>
+  </head>
+  <body class="body-cardapio">
+    <header>
+        <div class="container p-3">
+            <div class="row w-50 p-3 justify-content-center border border-light rounded mx-auto fundo">
+                <div class="col-lg-12 col-md-12">
+                    <div class="col mx-auto text-center">
+                        <a tabindex="1" href="index.html">
+                            <img src="https://www.shareicon.net/data/128x128/2016/08/19/816713_drink_512x512.png" alt="Logo da Hamburgueria">
+                        </a>
+                    </div>
+                    <div class="col mx-auto text-center">
+                        <a tabindex="1" id="titulo" href="index.html">
+                            <h1 id="titulo_h1">80's Hamburgueria</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center bg-light mt-3 p-3 w-50 mx-auto rounded borda-rosa">
+                <div class="mx-auto">
+                    <nav class="nav flex-lg-row flex-column">
+                        <a tabindex="2" class="btn btn-danger btn-lg m-1 botao-rosa" href="atmosfera.html" role="button">Atmosfera</a>
+                        <a tabindex="3" class="btn btn-danger btn-lg m-1 botao-rosa" href="#" role="button">Cardápio</a>
+                        <a tabindex="4" class="btn btn-danger btn-lg m-1 botao-rosa" href="delivery.html" role="button">Delivery</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <a href="javascript:history.back()" class="btn botao-fab botao-roxo btn-danger">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        <div class="container">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm bg-light">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Cheese burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://assets.marthastewart.com/styles/wmax-1500/d27/med104695_0609_cheeseburger/med104695_0609_cheeseburger_sq.jpg?itok=ExL2zldC" alt="Cheeseburger">
+                        <h1 class="card-title pricing-card-title">R$18,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Pão quentinho, hambúrguer de carne 100% bovina, queijo, cebola, picles com ketchup e mostarda.</li>
+                        </ul>
+                        <a id="chesseburguer" tabindex="5" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Chicken Burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://www.chicken.ca/assets/RecipePhotos/_resampled/FillWyI3MjAiLCI2MDAiXQ/Moist-Chicken-Burgers.jpg" alt="Chicken Burger">
+                        <h1 class="card-title pricing-card-title">R$18,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Frango empanado e dourado com molho suave e cremoso, acompanhado de alface crocante num pão com gergelim.</li>
+                        </ul>
+                        <a id="chickenburguer" tabindex="6" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Bacon Burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://receitinhas.s3-sa-east-1.amazonaws.com/wp-content/uploads/2017/08/iStock-544353226-848x477.jpg" alt="Bacon Burger">
+                        <h1 class="card-title pricing-card-title">R$18,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Hambúrguer, molho sabor whisky, queijo cheddar melt, muito bacon e pão com gergelim.</li>
+                        </ul>
+                        <a id="baconburguer" tabindex="7" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm bg-light">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Fish burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://previews.123rf.com/images/boarding1now/boarding1now1702/boarding1now170200106/72475874-fish-burger-fishburger-hamburger-and-fries-tomatoes-lettuce-cheese-unhealthy.jpg" alt="Fish burger">
+                        <h1 class="card-title pricing-card-title">R$18,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>A maré está para peixe. Filé de peixe empanado supercrocante, queijo, com um delicioso molho tártaro no pão quentinho.</li>
+                        </ul>
+                        <a id="fishburguer" tabindex="8" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Duplo Burger Bacon</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://media-cdn.tripadvisor.com/media/photo-s/13/24/6d/cc/hamburguer-duplo.jpg" alt="Duplo Burger Bacon">
+                        <h1 class="card-title pricing-card-title">R$21,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Dois deliciosos hambúrgueres de carne 100% bovina, queijo derretido e irresistíveis fatias de bacon.</li>
+                        </ul>
+                        <a id="duploburguer" tabindex="9" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Four Burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://redacao.ibahia.com/fileadmin/user_upload/ibahia/2018/agosto/23/kv-megastacker-catupiry.jpg" alt="Four Burger">
+                        <h1 class="card-title pricing-card-title">R$24,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>4 hambúrgueres, pepperoni, maionese defumada, queijo derretido, alface e pão com gergelim.</li>
+                        </ul>
+                        <a id="fourburguer" tabindex="10" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm bg-light">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Cheddar burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="http://images.guiadohamburguer.com/fotos/488-sheriffs-burger/14-jack-cheddar-sheriffs-burger.jpg" alt="Cheddar burger">
+                        <h1 class="card-title pricing-card-title">R$18,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Feito com carne bovina, delicioso queijo tipo cheddar derretido, cebola grelhada ao molho shoyu e para completar um pão escuro com gergelim.</li>
+                        </ul>
+                        <a id="cheddarburguer" tabindex="11" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Salad Burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://abrilcasa.files.wordpress.com/2016/11/cheese-salada-01-credito-mauro-holanda.jpeg?quality=95&strip=info&w=800" alt="Salad Burger">
+                        <h1 class="card-title pricing-card-title">R$14,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Combinação de hambúrguer de carne 100% bovina, cebola, picles, ketchup, mostarda, maionese com alface e tomate fresquinhos.</li>
+                        </ul>
+                        <a id="saladburguer" tabindex="12" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Picanha Burger</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://www.multireceitas.com.br/wp-content/uploads/2018/09/hamburguer-de-picanha.jpg" alt="Picanha Burger">
+                        <h1 class="card-title pricing-card-title">R$21,99</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Hambúrguer feito com carne de picanha com molho de picanha, queijo coalho empanado, tomate, mix de folhas e cebola crispy no pão com gergelim.</li>
+                        </ul>
+                        <a id="picanhaburguer" tabindex="13" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Fritas Pequena</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://cdn.awsli.com.br/600x450/21/21782/produto/4634336/3296cee192.jpg" alt="Fritas Pequena">
+                        <h1 class="card-title pricing-card-title">R$9,99</h1>
+                        <a id="fritaspequena" tabindex="14" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Fritas Média</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/d6/06/9b/porcao-de-fritas.jpg" alt="Fritas Média">
+                        <h1 class="card-title pricing-card-title">R$14,99</h1>
+                        <a id="fritasmedia" tabindex="15" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Fritas Grande</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://media-cdn.tripadvisor.com/media/photo-s/10/97/1d/22/porcao-de-batata-frita.jpg" alt="Fritas Grande">
+                        <h1 class="card-title pricing-card-title">R$19,99</h1>
+                        <a id="fritasgrande" tabindex="16" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Anéis de Cebola</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://p2.trrsf.com/image/fget/cf/940/0/images.terra.com/2017/12/15/passo-a-passo-dos-anc3a9is-de-cebola.jpg" alt="Anéis de Cebola">
+                        <h1 class="card-title pricing-card-title">R$19,99</h1>
+                        <a id="aneiscebola" tabindex="17" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Nuggets de Frango</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://www.natue.com.br/natuelife/wp-content/uploads/2016/03/Alta_nuggets_de_frango_caseiro.jpg" alt="Nuggets de Frango">
+                        <h1 class="card-title pricing-card-title">R$19,99</h1>
+                        <a id="nuggetsfrango" tabindex="18" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Salada</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem" src="https://st.depositphotos.com/3220235/4200/i/950/depositphotos_42005489-stock-photo-serving-of-healthy-vegetables-salad.jpg" alt="Salada">
+                        <h1 class="card-title pricing-card-title">R$9,99</h1>
+                        <a id="salada" tabindex="19" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Refrigerantes 2L</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem2" src="https://http2.mlstatic.com/refrigerantes-linha-coca-cola-escolha-o-seu-fardo-c6un2l-D_NQ_NP_671512-MLB28344470911_102018-F.jpg" alt="Refrigerantes 2L">
+                        <h1 class="card-title pricing-card-title">R$9,99</h1>
+                        <a href="delivery.html" tabindex="20" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Refrigerantes 350ml</h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail imagem2" src="http://www.nygourmet.com.br/wp-content/uploads/2015/01/latas-819x550.jpg" alt="Refrigerantes 350ml">
+                        <h1 class="card-title pricing-card-title">R$4,99</h1>
+                        <a href="delivery.html" tabindex="21" class="btn btn-danger botao-rosa btn-lg">Pedir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-light p-4 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2019 80's Hamburgueria</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><img title="Visa" alt="Visa" src="https://img.icons8.com/color/26/000000/visa.png"></li>
+            <li class="list-inline-item"><img title="Mastercard" alt="Mastercard" src="https://img.icons8.com/color/26/000000/mastercard.png"></li>
+            <li class="list-inline-item"><img title="Paypal" alt="Paypal" src="https://img.icons8.com/color/24/000000/paypal.png"></li>
+        </ul>
+    </footer>
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

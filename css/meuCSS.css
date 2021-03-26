@@ -1,0 +1,115 @@
+body{
+    background-image: url("https://preview.redd.it/ylubgrztirp11.jpg?width=960&crop=smart&auto=webp&s=a31f75383bb7c0b1a007ac715a05283ada50d1d2");
+    background-size: cover;
+}
+.body-cardapio{
+    background-image: url("https://preview.redd.it/ylubgrztirp11.jpg?width=960&crop=smart&auto=webp&s=a31f75383bb7c0b1a007ac715a05283ada50d1d2");
+    background-size: contain;
+}
+.imagem{
+    height: 200px !important;
+    width: 200px !important;
+}
+.imagem2{
+    height: 200px !important;
+    width: 300px !important;
+}
+#titulo_h1{
+    color: #FEB860;
+    text-shadow: 2px 2px 4px black;
+}
+#titulo:hover{
+    text-decoration: none;
+}
+.botao-rosa{
+    background-color: #DA55C7;
+    border: #DA55C7 1px solid;
+}
+.botao-rosa:hover{
+    background-color: #370D58;
+    border: #370D58 1px solid;
+}
+.botao-rosa:active{
+    background-color: #370D58;
+    border: #370D58 1px solid;
+}
+.botao-roxo{
+    background-color: #370D58;
+    border: #370D58 1px solid;
+}
+.botao-roxo:hover{
+    background-color: white;
+    border: #DA55C7 1px solid;
+    color:#DA55C7;
+}
+.botao-roxo:active{
+    background-color: white;
+    border: #DA55C7 1px solid;
+    color:#DA55C7;
+}
+.borda-rosa{
+    border: #DA55C7 1px solid;
+}
+.link-branco{
+    color: white;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+    text-shadow: #370D58 1px 1px;
+}
+.link-branco:hover{
+    color: white;
+    text-shadow: cyan 1px 1px;
+    text-decoration: none;
+}
+.link-branco:active{
+    color: white;
+    text-shadow: cyan 1px 1px;
+    text-decoration: none;
+}
+.botao-fab{
+    position: fixed;
+    border-radius: 50%;
+    padding: 14px;
+    width: 56px;
+    height: 56px;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 16px;
+    margin-right: 16px;
+    z-index: 10;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.fundo{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.quemsomos{
+    width: 100%;
+}
+.aiframe{
+    width: 100%;
+}
+@media screen and (max-width:768px){
+    body{
+        background-image: url("https://i.pinimg.com/originals/e8/9b/5a/e89b5a8e9c88a56454a6a36755df7222.jpg");
+        background-size: contain;
+    }
+    .body-cardapio{
+        background-image: url("https://i.pinimg.com/originals/e8/9b/5a/e89b5a8e9c88a56454a6a36755df7222.jpg");
+        background-size: contain;
+    }
+    #titulo_h1{
+        color: black;
+        text-shadow: 2px 2px 4px #FEB860;
+        font-size: 20px;
+    }
+    .fundo{
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    .imagem{
+        height: 300px !important;
+        width: 80% !important;
+        margin: 1rem;
+    }
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/meuCSS.css">
+
+    <title>Hamburgueria 80's</title>
+
+    <script>
+        total = 0;
+        cod = "IFSUL";
+        function adicionaCardapio(pedidof, valor){
+            var div = document.getElementById("pedidos");
+
+            if(document.getElementById("mensagemInicial")){
+                var mensagemInicial = document.getElementById("mensagemInicial");
+                mensagemInicial.remove();
+            }
+                
+            var p = document.createElement("p");
+            p.setAttribute("class", "p-class");
+            p.innerText = pedidof;
+            p.addEventListener("mouseover", () => {
+                p.style.color = "#c82333";
+            });
+            p.addEventListener("mouseout", () => {
+                p.style.color = "#212529";
+            });
+            p.addEventListener("click", () => {
+                p.remove();
+                total -= valor;
+            });
+            total += valor;
+            div.appendChild(p);
+        }
+        function queryString(parameter) {  
+              var loc = location.search.substring(1, location.search.length);   
+              var param_value = false;   
+              var params = loc.split("&");   
+              for (i=0; i<params.length;i++) {   
+                  param_name = params[i].substring(0,params[i].indexOf('='));   
+                  if (param_name == parameter) {                                          
+                      param_value = params[i].substring(params[i].indexOf('=')+1)   
+                  }   
+              }   
+              if (param_value) {   
+                  return param_value;   
+              }   
+              else {   
+                  return undefined;   
+              }   
+        }
+        function adicionarPedido(){
+            var pedido = [];
+            
+            var hamburguer = document.getElementById("hamburguer");
+            var acompanhamento = document.getElementById("acompanhamento");
+            var bebida = document.getElementById("bebidas");
+            var extra = document.getElementById("extra");
+
+            var frase = hamburguer.options[hamburguer.selectedIndex].text + " " + acompanhamento.options[acompanhamento.selectedIndex].text + " " + bebida.options[bebida.selectedIndex].text;
+            frase = frase.replace(/Nenhum/g,'');
+
+            if(extra.value != ""){
+                frase += " Adicional: " + extra.value; 
+            }else{
+                frase += ".";
+            }
+
+            var valorPedido = parseFloat(hamburguer.options[hamburguer.selectedIndex].value) + parseFloat(acompanhamento.options[acompanhamento.selectedIndex].value) + parseFloat(bebida.options[bebida.selectedIndex].value);
+            valorPedido = valorPedido.toFixed(2);
+            valorPedido = parseFloat(valorPedido);
+
+            frase += " Total: R$" + valorPedido;
+
+            frase = frase.trim();
+
+            pedido["pedido"] = frase;
+            pedido["valor"] = valorPedido;
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            var div = document.getElementById("pedidos");
+
+            if(document.getElementById("mensagemInicial")){
+                var mensagemInicial = document.getElementById("mensagemInicial");
+                mensagemInicial.remove();
+            }
+                
+            var p = document.createElement("p");
+            p.setAttribute("class", "p-class");
+            p.innerText = pedido["pedido"];
+            p.addEventListener("mouseover", () => {
+                p.style.color = "#c82333";
+            });
+            p.addEventListener("mouseout", () => {
+                p.style.color = "#212529";
+            });
+            p.addEventListener("click", () => {
+                p.remove();
+                total -= parseFloat(pedido["valor"]);
+            });
+            total += parseFloat(pedido["valor"]);
+            div.appendChild(p);
+        }
+        function finalizarPedido(promo, bool){
+            var div = document.getElementById("listaPedidos");
+
+            if(document.getElementById("total")){
+                document.getElementById("total").remove();
+            }
+
+            if(bool){
+                if(promo == ""){
+                    alert("Digite um código promocional para ganhar um desconto.")
+                }
+                else{
+                    if(total > 0){
+                        if(promo == cod){
+                            total -= 0.1 * parseFloat(total);
+                            cod = "nwd~in3pfg98hpqb2u3h3dio38og";
+                            var mens = document.createElement("p");
+                            mens.style.color = "#DA55C7";
+                            mens.innerText = "Show, esse código lhe deu 10% de desconto nessa compra!"
+                            div.appendChild(mens);
+                        }
+                        else{
+                            alert("Lamento, mas esse código não funcionou!");
+                        }
+                    }
+                    else{
+                        alert("Faça pelo menos um pedido para adicionar um código promocional!");
+                    }
+                }
+            }
+
+            var t = document.createElement("p");
+            t.setAttribute("id", "total");
+            t.style.fontWeight = "bold";
+            t.style.color = "#138496";
+            t.innerText = "Total: R$ " + parseFloat(total.toFixed(2));
+            div.appendChild(t);
+        }
+        addEventListener("load", function(){
+            
+            var num = parseInt(queryString("pedido"));
+
+            switch (num) {
+                case 1:
+                    var pedidof = "Chesse Burguer R$18.99 . Total: R$18.99";
+                    adicionaCardapio(pedidof, 18.99);
+                break;
+                case 2:
+                    var pedidof = "Chicken Burguer R$18.99 . Total: R$18.99";
+                    adicionaCardapio(pedidof, 18.99);
+                break;
+                case 3:
+                    var pedidof = "Bacon Burguer R$18.99 . Total: R$18.99";
+                    adicionaCardapio(pedidof, 18.99);
+                break;
+                case 4:
+                    var pedidof = "Fish Burguer R$18.99 . Total: R$18.99";
+                    adicionaCardapio(pedidof, 18.99);
+                break;
+                case 5:
+                    var pedidof = "Duplo Burger Bacon R$21.99 . Total: R$21.99";
+                    adicionaCardapio(pedidof, 21.99);
+                break;
+                case 6:
+                    var pedidof = "Four Burger R$24.99 . Total: R$24.99";
+                    adicionaCardapio(pedidof, 24.99);
+                break;
+                case 7:
+                    var pedidof = "Cheddar burger R$18.99 . Total: R$18.99";
+                    adicionaCardapio(pedidof, 18.99);
+                break;
+                case 8:
+                    var pedidof = "Salad burger R$14.99 . Total: R$14.99";
+                    adicionaCardapio(pedidof, 14.99);
+                break;
+                case 9:
+                    var pedidof = "Picanha burger R$21.99 . Total: R$21.99";
+                    adicionaCardapio(pedidof, 21.99);
+                break;
+                case 10:
+                    var pedidof = "Fritas Pequena R$9.99 . Total: R$9.99";
+                    adicionaCardapio(pedidof, 9.99);
+                break;
+                case 11:
+                    var pedidof = "Fritas Média R$14.99 . Total: R$14.99";
+                    adicionaCardapio(pedidof, 14.99);
+                break;
+                case 12:
+                    var pedidof = "Fritas Grande R$19.99 . Total: R$19.99";
+                    adicionaCardapio(pedidof, 19.99);
+                break;
+                case 13:
+                    var pedidof = "Aneis de Cebola R$19.99 . Total: R$19.99";
+                    adicionaCardapio(pedidof, 19.99);
+                break;
+                case 14:
+                    var pedidof = "Nuggets de Frango R$19.99 . Total: R$19.99";
+                    adicionaCardapio(pedidof, 19.99);
+                break;
+                case 15:
+                    var pedidof = "Salada R$9.99 . Total: R$9.99";
+                    adicionaCardapio(pedidof, 9.99);
+                break;
+                case 16:
+                    var pedidof = "Chesse Burguer R$15.99 . Total: R$15.99";
+                    adicionaCardapio(pedidof, 15.99);
+                break;
+                case 17:
+                    var pedidof = "Chicken Burguer R$16.99 . Total: R$16.99";
+                    adicionaCardapio(pedidof, 16.99);
+                break;
+            }
+            
+            var botaoAdd = document.getElementById("botaoAdd");
+            var botaoFinaliza = document.getElementById("botaoFinaliza");
+            var botaoResgatar = document.getElementById("resgatar");
+
+            botaoAdd.addEventListener("click", adicionarPedido);
+            botaoFinaliza.addEventListener("click", () => {
+                finalizarPedido(undefined, false);
+            });
+            botaoResgatar.addEventListener("click", () => {
+                finalizarPedido(document.getElementById("promo").value, true);
+            });
+        });
+    </script>
+    
+  </head>
+  <body>
+        <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Finalizar Pedido</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="esseaqui" class="modal-body">
+                        <h4 class="mb-3">Pedidos</h4>
+                        <div id="listaPedidos">
+
+                        </div>
+                        <hr class="mb-4">
+                        <h4 class="mb-3">Endereço</h4>
+                        <div class="mb-3">
+                            <label for="endereco" class="font-weight-bold">Rua</label>
+                            <input type="text" class="form-control" id="endereco" placeholder="Digite aqui seu endereço" required>
+                            <div class="invalid-feedback">Por favor, insira seu endereço de entrega.</div>
+                            <br><label for="num" class="font-weight-bold">Número</label>
+                            <input type="number" class="form-control" id="num" placeholder="Digite aqui o número da sua residência" required>
+                            <div class="invalid-feedback">Por favor, insira o número da sua residência.</div>
+                            <br><label for="bairro" class="font-weight-bold">Bairro</label>
+                            <input type="text" class="form-control" id="bairro" placeholder="Digite aqui seu bairro" required>
+                            <div class="invalid-feedback">Por favor, insira seu Bairro.</div>
+                            <br><label for="complemento" class="font-weight-bold">Complemento</label>
+                            <input type="text" class="form-control" id="complemento" placeholder="Digite aqui seu complemento">
+                        </div>
+                        <hr class="mb-4">
+                        <h4 class="mb-3">Pagamento</h4>
+                        <div class="d-block my-3">
+                            <div class="custom-control custom-radio">
+                                <input id="credito" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                                <label class="custom-control-label" for="credito">Cartão de crédito</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="debito" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                <label class="custom-control-label" for="debito">Cartão de débito</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                <label class="custom-control-label" for="paypal">PayPal</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cc-nome">Nome no cartão</label>
+                                <input type="text" class="form-control" id="cc-nome" placeholder="Nome no cartão" required>
+                                <small class="text-muted">Nome completo, como mostrado no cartão.</small>
+                                <div class="invalid-feedback">O nome que está no cartão é obrigatório.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="cc-numero">Número do cartão</label>
+                                <input type="number" class="form-control" id="cc-numero" placeholder="Número do cartão" required>
+                                <div class="invalid-feedback">O número do cartão é obrigatório.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cc-expiracao">Data de Expiração</label>
+                                <input type="date" class="form-control" id="cc-expiracao" placeholder="Data de expiração" required>
+                                <div class="invalid-feedback">Data de expiração é obrigatória.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="cc-cvv">CVV</label>
+                                <input type="number" class="form-control" id="cc-cvv" placeholder="CVV do cartão" required>
+                                <div class="invalid-feedback">Código de segurança é obrigatório.</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger botao-roxo" data-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-danger botao-roxo">Finalizar</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <header>
+            <div class="container p-3">
+                <div class="row w-50 p-3 justify-content-center border border-light rounded mx-auto fundo">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="col mx-auto text-center">
+                            <a tabindex="1" href="index.html">
+                                <img src="https://www.shareicon.net/data/128x128/2016/08/19/816713_drink_512x512.png" alt="Logo da Hamburgueria">
+                            </a>
+                        </div>
+                        <div class="col mx-auto text-center">
+                            <a tabindex="1" id="titulo" href="index.html">
+                                <h1 id="titulo_h1">80's Hamburgueria</h1>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center bg-light mt-3 p-3 w-50 mx-auto rounded borda-rosa">
+                    <div class="mx-auto">
+                        <nav class="nav flex-lg-row flex-column">
+                            <a tabindex="2" class="btn btn-danger btn-lg m-1 botao-rosa" href="atmosfera.html" role="button">Atmosfera</a>
+                            <a tabindex="3" class="btn btn-danger btn-lg m-1 botao-rosa" href="cardapio.html" role="button">Cardápio</a>
+                            <a tabindex="4" class="btn btn-danger btn-lg m-1 botao-rosa" href="#" role="button">Delivery</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <a href="javascript:history.back()" class="btn botao-fab botao-roxo btn-danger">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 bg-light rounded mb-5 pb-4">
+                        <div class="col-12 p-3">
+                            <h1>Faça seu Pedido!</h1>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm m-3">
+                                    <div class="col-12 mb-3">
+                                        <label for="hamburguer">Hamburguer</label><br>  
+                                        <select class="custom-select" name="hamburguer" id="hamburguer">
+                                            <option value="18.99">Chesse Burguer R$18.99</option>
+                                            <option value="18.99">Chicken Burger R$18.99</option>
+                                            <option value="18.99">Bacon Burger R$18.99</option>
+                                            <option value="18.99">Fish Burger R$18.99</option>
+                                            <option value="21.99">Duplo Burger Bacon R$21.99</option>
+                                            <option value="24.99">Four Burger R$24.99</option>
+                                            <option value="18.99">Cheddar Burger R$18.99</option>
+                                            <option value="14.99">Salad Burger R$14.99</option>
+                                            <option value="21.99">Picanha Burger R$21.99</option>
+                                            <option value="0">Nenhum</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="acompanhamento">Acompanhamento</label><br>  
+                                        <select class="custom-select" name="acompanhamento" id="acompanhamento">
+                                            <option value="9.99">Fritas Pequena R$9.99</option>
+                                            <option value="14.99">Fritas Média R$14.99</option>
+                                            <option value="19.99">Fritas Grande R$19.99</option>
+                                            <option value="19.99">Aneis de Cebola R$19.99</option>
+                                            <option value="19.99">Nuggets de Frango R$19.99</option>
+                                            <option value="9.99">Salada R$9.99</option>
+                                            <option value="0">Nenhum</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="bebidas">Bebida</label><br>  
+                                        <select class="custom-select" name="bebidas" id="bebidas">
+                                            <option value="4.99">Coca-Cola 2L R$9.99</option>
+                                            <option value="4.99">Fanta 2L R$9.99</option>
+                                            <option value="4.99">Sprite 2L R$9.99</option>
+                                            <option value="4.99">Kuat 2L R$9.99</option>
+                                            <option value="4.99">Coca-Cola 350ml R$4.99</option>
+                                            <option value="4.99">Fanta 350ml R$4.99</option>
+                                            <option value="4.99">Sprite 350ml R$4.99</option>
+                                            <option value="4.99">Kuat 350ml R$4.99</option>
+                                            <option value="0">Nenhum</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm m-3">
+                                    <label for="extra">Informação Adicional</label><br>
+                                        <textarea class="form-control" name="extra" id="extra" rows="5" placeholder="Adicione aqui alguma informação adicional."></textarea>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm m-3 ml-4">
+                                    <button type="button" id="botaoAdd" class="btn btn-danger botao-rosa">Adicionar Pedido</button>
+                                </div>
+                                <div class="col-sm m-3">
+                                    <p class="font-weight-bold">Pedidos:</p>
+                                    <div id="pedidos">
+                                        <p id="mensagemInicial">Nenhum pedido adicionado ainda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-sm m-3 ml-4">
+                                        <button type="button" id="botaoFinaliza" class="btn btn-danger botao-roxo" data-toggle="modal" data-target="#modalExemplo">Finalizar Pedido</button>
+                                    </div>
+                                    <div class="col-sm m-3">
+                                        <div class="input-group">
+                                            <input id="promo" type="text" class="form-control" placeholder="Código promocional">
+                                            <div class="input-group-append">
+                                                <button id="resgatar" type="button" class="btn btn-danger botao-rosa" data-toggle="modal" data-target="#modalExemplo">Resgatar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-3 col-md-12">
+                        <div class="row">
+                            <div class="justify-content-center mx-auto">
+                                <a class="btn btn-link btn-sm link-branco" href="https://www.facebook.com">
+                                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png">
+                                    <p>80's Hamburgueria</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="justify-content-center mx-auto">
+                                <a class="btn btn-link btn-sm link-branco" href="https://www.twitter.com">
+                                    <img src="https://img.icons8.com/color/48/000000/twitter-circled.png">
+                                    <p>@80sHamburgueria</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="justify-content-center mx-auto">
+                                <a class="btn btn-link btn-sm link-branco" href="https://www.whatsapp.com">
+                                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png">
+                                    <p>(51) 99999-9999</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="justify-content-center mx-auto">
+                                <a class="btn btn-link btn-sm link-branco" href="https://www.whatsapp.com">
+                                    <img src="https://img.icons8.com/nolan/64/000000/phone.png">
+                                    <p>(51) 98888-8888</p>
+                                    <p>(51) 97777-7777</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-light p-4 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2019 80's Hamburgueria</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><img title="Visa" alt="Visa" src="https://img.icons8.com/color/26/000000/visa.png"></li>
+                <li class="list-inline-item"><img title="Mastercard" alt="Mastercard" src="https://img.icons8.com/color/26/000000/mastercard.png"></li>
+                <li class="list-inline-item"><img title="Paypal" alt="Paypal" src="https://img.icons8.com/color/24/000000/paypal.png"></li>
+            </ul>
+        </footer>
+        <!-- JavaScript (Opcional) -->
+        <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
